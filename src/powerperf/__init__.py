@@ -1,0 +1,1 @@
+"""PowerPerf Lab: reproducible CPU scaling experiments."""
