@@ -1,0 +1,10 @@
+{
+  "worker_counts": [1, 2, 4, 8],
+  "iterations": 8000000,
+  "repetitions": 20,
+  "warmups": 1,
+  "timeout_seconds": 180,
+  "telemetry_interval_seconds": 0.5,
+  "cooldown_seconds": 2.0,
+  "random_seed": 42
+}
