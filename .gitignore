@@ -5,3 +5,8 @@ __pycache__/
 # Ignore macOS system files
 .DS_Store
 **/.DS_Store
+# Ignore Python build and distribution artifacts
+*.egg-info/
+.eggs/
+build/
+dist/
