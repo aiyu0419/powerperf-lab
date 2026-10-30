@@ -1,9 +1,0 @@
-pyproject.toml
-src/powerperf/__init__.py
-src/powerperf/workload.py
-src/powerperf_lab.egg-info/PKG-INFO
-src/powerperf_lab.egg-info/SOURCES.txt
-src/powerperf_lab.egg-info/dependency_links.txt
-src/powerperf_lab.egg-info/requires.txt
-src/powerperf_lab.egg-info/top_level.txt
-tests/test_workload.py
