@@ -39,7 +39,7 @@ Local checkout note: this mirror does not include `powerperf.config`, `powerperf
 Supply a Python benchmark that accepts `--workers` and `--iterations` and prints `checksum=<nonnegative integer>`. Its checksum must remain consistent across runs and worker counts for the same total iterations.
 
 ```sh
-python3 test.py --benchmark /path/to/benchmark.py --workers 1 2 4 8 --iterations 40000000 --repetitions 5 --seed 0
+python3 tests/performance/benchmark_scaling.py --benchmark src/performance/powerperf/workload.py --workers 1 2 4 8 --iterations 40000000 --repetitions 5 --seed 0
 ```
 
 The runner checks the benchmark's syntax, shuffles all scheduled runs with the supplied seed, executes them sequentially, and verifies their checksums. It reports median, minimum, and maximum whole-program wall time, plus speedup relative to the smallest worker count tested. Timing includes process startup and shutdown.

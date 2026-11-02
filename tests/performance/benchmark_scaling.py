@@ -2,15 +2,12 @@
 
 import argparse
 import random
-import re
+import json
 import statistics
 import subprocess
 import sys
 import time
 from pathlib import Path
-
-
-CHECKSUM_PATTERN = re.compile(r"checksum=(\d+)")
 
 
 def run_benchmark(
@@ -36,13 +33,35 @@ def run_benchmark(
     )
     elapsed = time.perf_counter() - started
 
-    match = CHECKSUM_PATTERN.search(completed.stdout)
-    if match is None:
+    try:
+        payload = json.loads(completed.stdout)
+    except json.JSONDecodeError as error:
         raise RuntimeError(
-            f"Could not find 'checksum=<number>' in output:\n{completed.stdout}"
+            f"Benchmark returned invalid JSON:\n{completed.stdout}"
+        ) from error
+
+    if not isinstance(payload, dict):
+        raise RuntimeError("Benchmark output must be a JSON object")
+
+    checksum = payload.get("checksum")
+    if type(checksum) is not int:
+        raise RuntimeError(
+            "Benchmark output must contain an integer checksum"
         )
 
-    return elapsed, int(match.group(1)), completed.stdout.strip()
+    if payload.get("workers") != workers:
+        raise RuntimeError(
+            f"Expected workers={workers}, "
+            f"received {payload.get('workers')}"
+        )
+
+    if payload.get("iterations") != iterations:
+        raise RuntimeError(
+            f"Expected iterations={iterations}, "
+            f"received {payload.get('iterations')}"
+        )
+
+    return elapsed, checksum, completed.stdout.strip()
 
 
 def check_syntax(benchmark: Path) -> None:

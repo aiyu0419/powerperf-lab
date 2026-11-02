@@ -1,0 +1,11 @@
+{
+  "captured_utc": "2026-11-02T20:31:47.836593+00:00",
+  "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "processor": "arm",
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "logical_cpus": 12,
+  "physical_cpus_reported": 12,
+  "memory_bytes": 25769803776,
+  "note": "CPU frequency, power and temperature not measured."
+}
