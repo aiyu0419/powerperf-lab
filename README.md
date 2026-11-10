@@ -28,8 +28,8 @@ Next steps:
 | --- | --- |
 | `powerperf/controller.py` | Schedules experiments, launches workload processes, validates output, and records results. |
 | `powerperf/__init__.py` | Package definition. |
-| `test.py` | Standalone benchmark runner that verifies checksums and summarizes timing and speedup. |
-| `tests/test_controller.py` | Pytest tests for parsing, outcomes, telemetry, and experiment scheduling. |
+| `tests/performance/benchmark_scaling.py` | Standalone benchmark runner that verifies checksums and summarizes timing and speedup. |
+| `tests/unit/test_controller.py` | Pytest tests for parsing, outcomes, telemetry, and experiment scheduling. |
 | `analysis/analysis.py` | Analyzes controller results and writes a summary CSV and Markdown report. |
 | `analysis/visualization.py` | Creates scaling and timing-distribution plots from analyzed results. |
 
